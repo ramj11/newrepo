@@ -1,0 +1,19 @@
+pipeline{
+    agent any
+    stages {
+        stage ('code') {
+            input {
+                message "can we processed"
+                ok "yes"
+                submitter "qtree"
+                parameters{
+                    string(name: 'PERSON', defaultValue: 'qtree', description: 'member')
+                } 
+                
+            }
+            steps {
+                echo "${PERSON}, is running...."
+            }
+        }
+    }
+}
